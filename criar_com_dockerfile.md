@@ -73,7 +73,7 @@ Abra o container MySql:
 ````
 docker exec -it mysql-c bash
 ````
-E execute o comando para od dois containers da seguinte maneira:
+E execute o comando para os dois containers da seguinte maneira:
 ````
 chmod -R 777 .
 ````
