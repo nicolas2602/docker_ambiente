@@ -61,3 +61,19 @@ docker build -t php-img:1.0 -f docker_container/php.dockerfile .
 ````
 docker run -p 80:80 -d --name php-c -v "$PWD"/docker_container/php:/var/www/html --network rede-myadmin --link mysql-c:db_mysql php-img:1.0
 ````
+&nbsp;
+### Habilitar permissão (chmod 777) para container PHP e MySql
+Abra o container PHP:
+````
+docker exec -it php-c bash
+````
+**_ou_**
+
+Abra o container MySql:
+````
+docker exec -it mysql-c bash
+````
+E execute o comando para od dois containers da seguinte maneira:
+````
+chmod -R 777 .
+````
