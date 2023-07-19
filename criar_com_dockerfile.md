@@ -6,7 +6,7 @@ docker network create rede-myadmin
 ```
 &nbsp;
 ### *Instalar o MySql no Docker*  
-### 1. Crie um arquivo chamado mysql.Dockerfile para configurar a imagem do MySql:
+### 1. Crie um arquivo chamado mysql.Dockerfile para configurar a imagem do MySQL:
 ````
 FROM mysql:latest
 
@@ -16,17 +16,17 @@ ENV MYSQL_ROOT_PASSWORD=admin
 
 EXPOSE 3306
 ````
-### 2. Criar a imagem do MySql feito no mysql.Dockerfile:
+### 2. Criar a imagem do MySQL feito no mysql.dockerfile:
 ````
 docker build -t mysql-img:1.0 -f docker_container/mysql.dockerfile .
 ````
-### 3. Criar um container MySql:
+### 3. Criar um container MySQL:
 ````
 docker run -d -p 3307:3306 --name mysql-c -v "$PWD"/docker_container/mysql:/var/lib/mysql -h db --network rede-myadmin mysql-img:1.0
 ````
 &nbsp;
 ### *Instalar o phpMyAdmin no Docker*
-### 1. Crie um arquivo chamado phpmyadmin.Dockerfile:
+### 1. Crie um arquivo chamado phpmyadmin.dockerfile:
 ````
 FROM phpmyadmin:latest
 
@@ -34,7 +34,7 @@ ENV PMA_HOST=db
 
 EXPOSE 80
 ````
-### 2. Criar a imagem do phpMyAdmin feito no phpmyadmin.Dockerfile:
+### 2. Criar a imagem do phpMyAdmin feito no phpmyadmin.dockerfile:
 ````
 docker build -t myadmin-img:1.0 -f docker_container/phpmyadmin.dockerfile .
 ````
@@ -44,7 +44,7 @@ docker run -d --name myadmin-c -p 8080:80 -h myadmin --network rede-myadmin myad
 ````
 &nbsp;
 ### *Instalar o PHP no Docker*
-### 1. Crie um arquivo chamado php.Dockerfile
+### 1. Crie um arquivo chamado php.dockerfile
 ````
 FROM php:8.1.18-apache
 
@@ -53,7 +53,7 @@ RUN apachectl restart
 
 EXPOSE 80
 ````
-### 2. Crie um arquivo chamado php.Dockerfile
+### 2. Crie um arquivo chamado php.dockerfile
 ````
 docker build -t php-img:1.0 -f docker_container/php.dockerfile .
 ````
@@ -62,14 +62,14 @@ docker build -t php-img:1.0 -f docker_container/php.dockerfile .
 docker run -p 80:80 -d --name php-c -v "$PWD"/docker_container/php:/var/www/html --network rede-myadmin --link mysql-c:db_mysql php-img:1.0
 ````
 &nbsp;
-### Habilitar permissão (chmod 777) para container PHP e MySql
+### Habilitar permissão (chmod 777) para container PHP e MySQL
 Abra o container PHP:
 ````
 docker exec -it php-c bash
 ````
 **_ou_**
 
-Abra o container MySql:
+Abra o container MySQL:
 ````
 docker exec -it mysql-c bash
 ````
