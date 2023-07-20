@@ -28,80 +28,85 @@ docker run -d -p 3307:3306 --name mysql-c -v "$PWD"/docker_container/mysql:/var/
 ````
 docker exec -it mysql-c bash
 ````
-Para conceder a permissão (opcional):
-````
-chmod -R 777 .
-````
+- Para conceder a permissão (opcional):
+  ````
+  chmod -R 777 .
+  ````
+
 **_ou_**
 
-Para acessar o MySQL no container, coloque:
-````
-mysql -u root -p
-````
-e depois digite a senha do root _(definido no container, “MYSQL_ROOT_PASSWORD”)_.
+- Para acessar o MySQL no container, coloque:
+  ````
+  mysql -u root -p
+  ````
+
+  e depois digite a senha do root _(definido no container, “MYSQL_ROOT_PASSWORD”)_.
 
 &nbsp;
 
-Após digitar a senha, coloque o comando:
-````
-show databases;
-````
-para exibir os bancos de dados disponíveis. 
+- Após digitar a senha, coloque o comando:
+  ````
+  show databases;
+  ````
+
+  para exibir os bancos de dados disponíveis. 
 
 &nbsp;
 
-Para criar um banco de dados, coloque:
-````
-create database nome_bd;
-````
+- Para criar um banco de dados, coloque:
+  ````
+  create database nome_bd;
+  ````
 
 &nbsp;
 
-Criado o banco de dados, utilize o comando:
-````
-use nome_bd;
-````
-para acessar o banco de dados.
+- Criado o banco de dados, utilize o comando:
+  ````
+  use nome_bd;
+  ````
+
+  para acessar o banco de dados.
 
 &nbsp;
 
-Dentro do banco criado, exiba as tabela disponíveis:
-````
-show tables;
-````
+- Dentro do banco criado, exiba as tabela disponíveis:
+  ````
+  show tables;
+  ````
 
 &nbsp;
 
-Caso não tenha, crie uma tabela:
-````
-CREATE TABLE pessoa(
-   IdPessoa int primary key AUTO_INCREMENT,
-   nomePessoa varchar(100) NOT NULL,
-   idadePessoa int NOT NULL,
-   dataNascimento date
-);
-````
+- Caso não tenha, crie uma tabela:
+  ````
+   CREATE TABLE pessoa(
+      IdPessoa int primary key AUTO_INCREMENT,
+      nomePessoa varchar(100) NOT NULL,
+      idadePessoa int NOT NULL,
+      dataNascimento date
+   );
+  ````
 
 &nbsp;
 
-E para inserir os dados na tabela:
-````
-INSERT INTO pessoa (nomePessoa, idadePessoa, dataNascimento) VALUES ('Nicolas', 20, '2002-12-26'), ('Eduardo', 32, '1991-12-26');
-````
+- E para inserir os dados na tabela:
+  ````
+  INSERT INTO pessoa (nomePessoa, idadePessoa, dataNascimento) VALUES ('Nicolas', 20, '2002-12-26'), ('Eduardo', 32, '1991-12-26');
+  ````
 
 &nbsp;
 
-Com os dados inseridos, digite:
-````
-select * from pessoa;
-````
-para exibir os dados da tabela.
+- Com os dados inseridos, digite:
+  ````
+  select * from pessoa;
+  ````
+  para exibir os dados da tabela.
 
 &nbsp;
 
 Feito isso basta dar um ````exit```` para sair do MySQL e depois ````exit```` novamente, para sair do container MySQL.
 
 &nbsp;
+
 ### *Instalar o phpMyAdmin no Docker*
 ### 1. Crie um arquivo chamado phpmyadmin.dockerfile:
 ````
