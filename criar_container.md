@@ -14,7 +14,7 @@ docker pull mysql:latest
 ````
 docker run -d -p 3307:3306 --name mysql-c -v "$PWD"/docker_ambiente/mysql:/var/lib/mysql -h db --network rede-myadmin -e MYSQL_ROOT_PASSWORD=admin -e MYSQL_USER=nome_usuario -e MYSQL_PASSWORD=admin mysql:latest
 ````
-### 3. Executar o container MySQL:
+### 3. Abra o container MySQL:
 ````
 docker exec -it mysql-c bash
 ````
@@ -119,7 +119,7 @@ docker pull php:8.1.18-apache
 ````
 docker run -p 80:80 -d --name php-c -v "$PWD"/docker_ambiente/php:/var/www/html --network rede-myadmin --link mysql-c:db php:8.1.18-apache
 ````
-### 3. Executar o container PHP para baixar bibliotecas e conceder permissões:
+### 3. Abra o container PHP para baixar bibliotecas e conceder permissões:
 ````
 docker exec -ti php-c bash
 ````
