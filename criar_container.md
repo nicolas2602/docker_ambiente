@@ -78,7 +78,7 @@ E para inserir os dados na tabela:
 ````
 INSERT INTO pessoa (nomePessoa, idadePessoa, dataNascimento) VALUES ('Nicolas', 20, '2002-12-26'), ('Eduardo', 32, '1991-12-26');
 ````
-Feito isso basta dar um ````exit```` para sair do MySQL e ````exit```` para sair do container MySQL.
+Feito isso basta dar um ````exit```` para sair do MySQL e depois ````exit```` novamente, para sair do container MySQL.
 
 &nbsp;
 ### Passo 3: *Instalar o phpMyAdmin no Docker*
