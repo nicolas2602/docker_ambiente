@@ -18,7 +18,7 @@ docker run -d -p 3307:3306 --name mysql-c -v "$PWD"/docker_ambiente/mysql:/var/l
 ````
 docker exec -it mysql-c bash
 ````
-- Para conceder a permissão (opcional):
+- Para conceder a permissão de arquivos e pastas (opcional):
   ````
   chmod -R 777 .
   ````
@@ -136,7 +136,7 @@ docker exec -ti php-c bash
     ````
     apachectl restart
     ````
-2. Depois de baixar a biblioteca, habilite a permissão para o container PHP (chmod 777):
+2. Depois de baixar a biblioteca, habilite a permissão de arquivos e pastas para o container PHP (chmod 777):
   ````
   chmod -R 777 .
   ````
