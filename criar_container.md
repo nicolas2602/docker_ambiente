@@ -87,6 +87,8 @@ select * from pessoa;
 ````
 para exibir os dados da tabela.
 
+&nbsp;
+
 Feito isso basta dar um ````exit```` para sair do MySQL e depois ````exit```` novamente, para sair do container MySQL.
 
 &nbsp;
