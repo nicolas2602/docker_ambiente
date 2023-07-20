@@ -24,11 +24,11 @@ docker build -t mysql-img:1.0 -f docker_container/mysql.dockerfile .
 ````
 docker run -d -p 3307:3306 --name mysql-c -v "$PWD"/docker_container/mysql:/var/lib/mysql -h db --network rede-myadmin mysql-img:1.0
 ````
-### 4. Executar o container MySQL:
+### 4. Abra o container MySQL:
 ````
 docker exec -it mysql-c bash
 ````
-- Para conceder a permissão (opcional):
+- Para conceder a permissão de arquivos e pastas (opcional):
   ````
   chmod -R 777 .
   ````
@@ -143,11 +143,12 @@ docker build -t php-img:1.0 -f docker_container/php.dockerfile .
 ````
 docker run -p 80:80 -d --name php-c -v "$PWD"/docker_container/php:/var/www/html --network rede-myadmin --link mysql-c:db_mysql php-img:1.0
 ````
-### 4. Executar o container PHP:
+### 4. Abra o container PHP:
 ````
 docker exec -it php-c bash
 ````
-Para conceder a permissão:
+Para conceder a permissão de arquivos e pastas:
 ````
 chmod -R 777 .
 ````
+Feito isso, basta dar um ````exit```` para sair do container PHP.
