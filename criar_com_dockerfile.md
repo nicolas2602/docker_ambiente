@@ -1,11 +1,11 @@
 # Docker PHP + MySQL + phpMyAdmin (Dockerfile)
 &nbsp;
-### *Criar uma rede para os containers:*
+### Passo 1: *Criar uma rede para os containers:*
 ```
 docker network create rede-myadmin
 ```
 &nbsp;
-### *Instalar o MySql no Docker*  
+### Passo 2: *Instalar o MySQL no Docker*  
 ### 1. Crie um arquivo chamado mysql.Dockerfile para configurar a imagem do MySQL:
 ````
 FROM mysql:latest
@@ -107,7 +107,7 @@ Feito isso basta dar um ````exit```` para sair do MySQL e depois ````exit```` no
 
 &nbsp;
 
-### *Instalar o phpMyAdmin no Docker*
+### Passo 3: *Instalar o phpMyAdmin no Docker*
 ### 1. Crie um arquivo chamado phpmyadmin.dockerfile:
 ````
 FROM phpmyadmin:latest
@@ -125,7 +125,7 @@ docker build -t myadmin-img:1.0 -f docker_container/phpmyadmin.dockerfile .
 docker run -d --name myadmin-c -p 8080:80 -h myadmin --network rede-myadmin myadmin-img:1.0
 ````
 &nbsp;
-### *Instalar o PHP no Docker*
+### Passo 4: *Instalar o PHP no Docker*
 ### 1. Crie um arquivo chamado php.dockerfile
 ````
 FROM php:8.1.18-apache
