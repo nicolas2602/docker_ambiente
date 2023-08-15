@@ -18,11 +18,11 @@ EXPOSE 3306
 ````
 ### 2. Criar a imagem do MySQL feito no mysql.dockerfile:
 ````
-docker build -t mysql-img:1.0 -f docker_container/mysql.dockerfile .
+docker build -t mysql-img:1.0 -f docker_ambiente/mysql.dockerfile .
 ````
 ### 3. Criar um container MySQL:
 ````
-docker run -d -p 3307:3306 --name mysql-c -v "$PWD"/docker_container/mysql:/var/lib/mysql -h db --network rede-myadmin mysql-img:1.0
+docker run -d -p 3307:3306 --name mysql-c -v "$PWD"/docker_ambiente/mysql:/var/lib/mysql -h db --network rede-myadmin mysql-img:1.0
 ````
 ### 4. Abra o container MySQL:
 ````
@@ -118,7 +118,7 @@ EXPOSE 80
 ````
 ### 2. Criar a imagem do phpMyAdmin feito no phpmyadmin.dockerfile:
 ````
-docker build -t myadmin-img:1.0 -f docker_container/phpmyadmin.dockerfile .
+docker build -t myadmin-img:1.0 -f docker_ambiente/phpmyadmin.dockerfile .
 ````
 ### 3. Criar um container phpMyAdmin:
 ````
@@ -137,11 +137,11 @@ EXPOSE 80
 ````
 ### 2. Crie um arquivo chamado php.dockerfile
 ````
-docker build -t php-img:1.0 -f docker_container/php.dockerfile .
+docker build -t php-img:1.0 -f docker_ambiente/php.dockerfile .
 ````
 ### 3. Criar um container PHP:
 ````
-docker run -p 80:80 -d --name php-c -v "$PWD"/docker_container/php:/var/www/html --network rede-myadmin --link mysql-c:db_mysql php-img:1.0
+docker run -p 80:80 -d --name php-c -v "$PWD"/docker_ambiente/php:/var/www/html --network rede-myadmin --link mysql-c:db_mysql php-img:1.0
 ````
 ### 4. Abra o container PHP:
 ````
